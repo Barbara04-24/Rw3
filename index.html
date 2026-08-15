@@ -1,55 +1,179 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta http-equiv="refresh" content="5;url=https://s.shopee.co.id/4qDijTUjhj?share_channel_code=1">
-  <meta http-equiv="refresh" content="5;url=https://s.shopee.co.id/4qDijTUjhj?share_channel_code=1"> 
-
-
-  <!DOCTYPE html>
-<html lang="id">
-<head>
+      <meta http-equiv="refresh" content="5;url=https://s.shopee.co.id/4qDijTUjhj?share_channel_code=1">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIDEY</title>
+    <title>VIDEY - Video Player</title>
+
+
+
     <style>
-        /* Mengatur latar belakang halaman */
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Warna gelap agar fokus ke video */
-            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f0f10;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 15px;
         }
 
-        /* Kontainer Utama Video (Ukuran disesuaikan dengan layar HP) */
+        .video-card {
+            width: 100%;
+            max-width: 420px;
+            background-color: #18181b;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #27272a;
+            padding: 16px;
+        }
+
+        /* --- HEADER --- */
+        .card-header {
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .brand-title {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* --- VIDEO PLAYER --- */
         .video-wrapper {
             width: 100%;
-            max-width: 450px; /* Batas maksimal lebar agar proporsional */
             background-color: #000;
-            border-radius: 12px; /* Membuat sudut video sedikit melengkung rapi */
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            position: relative;
+            min-height: 220px;
         }
 
-        /* Mengatur Video HTML5 agar Responsif */
-        .video-wrapper video {
-            width: 100%;
+        .video-js {
+            width: 100% !important;
+            height: 230px !important;
+            border-radius: 10px;
+        }
+
+        .action-area {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* --- TOMBOL MONETAG / SPONSOR --- */
+        .btn-sponsor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-sponsor:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
+        }
+
+        .sub-text {
+            font-size: 11px;
+            color: #a1a1aa;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .btn-shopee {
             display: block;
-            object-fit: contain; /* Menjaga rasio video asli */
+            background-color: #27272a;
+            color: #e4e4e7;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid #3f3f46;
+            transition: background-color 0.2s;
+        }
+
+        .btn-shopee:hover {
+            background-color: #3f3f46;
+        }
+
+        .ad-container {
+            width: 100%;
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 8px;
         }
     </style>
 </head>
 <body>
 
-<div class="video-wrapper">
-    <video controls poster="link-gambar-cover.jpg">
-        <source src="https://github.com/user-attachments/assets/27387df3-d744-4093-8ed8-bca6be3f1b39" type="video/mp4">
-        Browser Anda tidak mendukung pemutar video ini.
-    </video>
+<div class="video-card">
+    <div class="card-header">
+        <h1 class="brand-title">VIDEY VIRAL</h1>
+    </div>
+
+    <div class="video-wrapper">
+        <!-- PEMUTAR VIDEO DENGAN IN-STREAM VAST ADS -->
+        <video id="myVideo" class="video-js vjs-default-skin" controls playsinline poster="link-gambar-cover.jpg">
+            <source src="https://github.com/user-attachments/assets/27387df3-d744-4093-8ed8-bca6be3f1b39" type="video/mp4">
+            Browser Anda tidak mendukung pemutar video ini.
+        </video>
+    </div>
+
+    <div class="action-area">
+        <a href="https://s.shopee.co.id/9KgzHuhJ60" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-sponsor">
+            🚀 Tonton Rekomendasi Hari Ini
+        </a>
+        
+        <p class="sub-text">
+            Saksikan tayangan menarik lainnya melalui tautan resmi mitra kami.
+        </p>
+
+        <a href="https://s.shopee.co.id/9KgzHuhJ60" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-shopee">
+            🛍️ VOUCHER SHOPEE DISKON HINGGA 90% MIN BELANJA 10K
+        </a>
+
+        <div class="ad-container">
+            <!-- Tempat Banner Tambahan -->
+        </div>
+    </div>
 </div>
+
+
 
 </body>
 </html>
